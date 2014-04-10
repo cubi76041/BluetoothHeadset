@@ -548,15 +548,15 @@ public abstract class BluetoothHeadsetUtils
             // First stick calls always returns false. The second stick
             // always returns true if the countDownInterval is set to 1000.
             // It is somewhere in between 500 to a 1000.
-        	mBluetoothHeadset.stopVoiceRecognition(mConnectedHeadset);
+//        	mBluetoothHeadset.stopVoiceRecognition(mConnectedHeadset);
             if(mBluetoothHeadset.startVoiceRecognition(mConnectedHeadset)) {
             	System.out.println("Started voice recognition");
             } else {
             	System.out.println("Could not start recognition");
             }
         	System.out.println("XXXXXX" + mConnectedHeadset.getName());
-//        	mAudioManager.setBluetoothScoOn(true);
-//        	mAudioManager.startBluetoothSco();
+        	mAudioManager.setBluetoothScoOn(true);
+        	mAudioManager.startBluetoothSco();
 
             Log.d(TAG, "onTick startVoiceRecognition"); //$NON-NLS-1$
         }

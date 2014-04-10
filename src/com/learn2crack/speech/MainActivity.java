@@ -46,56 +46,56 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		mBluetoothHelper = new BluetoothHelper(this);
 		Start = (Button) findViewById(R.id.start_reg);
-//		Speech = (TextView) findViewById(R.id.speech);
-//		
-//		 if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-//		    	System.out.println("Gingerboard");
-//		        bt = new Gingerbread();
-//		    } else {
-//		    	System.out.println("Honeycomb");
-//		        bt = new Honeycomb();
-//		    }
-//		 
-//		 bt.setContext(this);
-//
-//		    try {
-//		        bt.obtainProxy();
-//		    } catch (Exception e) {
-//		        e.printStackTrace();
-//		    }
-//		    IntentFilter filter = new IntentFilter(Intent.ACTION_ALL_APPS);
-//		    registerReceiver((Honeycomb) bt, filter);
-//		    
-//		    am = (AudioManager) getSystemService("audio");
-//			 am.setBluetoothScoOn(true);
-//	            am.startBluetoothSco();
+		Speech = (TextView) findViewById(R.id.speech);
+		
+		 if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+		    	System.out.println("Gingerboard");
+		        bt = new Gingerbread();
+		    } else {
+		    	System.out.println("Honeycomb");
+		        bt = new Honeycomb();
+		    }
+		 
+		 bt.setContext(this);
 
-//		Start.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				if (isConnected()) {
-//
-//					 if(bt.isAvailable()) {
-//						 System.out.println("BT is available");
-//				            bt.startVoiceRecognition();
-//				        }
-//					 
-//					 System.out.println("Voice State:" + ((Honeycomb) bt).getVoiceState());
-//					 System.out.println("Voice State 2: " + ((Honeycomb) bt).getVoiceState());
-//					Intent intent = new Intent(
-//							RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-//					intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-//							RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-//					startActivityForResult(intent, REQUEST_CODE);
-//				} else {
-//					Toast.makeText(getApplicationContext(),
-//							"Plese Connect to Internet", Toast.LENGTH_LONG)
-//							.show();
-//				}
-////				startService(new Intent(context, MyService.class));
-//			}
-//
-//		});
+		    try {
+		        bt.obtainProxy();
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+		    IntentFilter filter = new IntentFilter(Intent.ACTION_ALL_APPS);
+		    registerReceiver((Honeycomb) bt, filter);
+		    
+		    am = (AudioManager) getSystemService("audio");
+			 am.setBluetoothScoOn(true);
+	            am.startBluetoothSco();
+
+		Start.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (isConnected()) {
+
+					 if(bt.isAvailable()) {
+						 System.out.println("BT is available");
+				            bt.startVoiceRecognition();
+				        }
+					 
+					 System.out.println("Voice State:" + ((Honeycomb) bt).getVoiceState());
+					 System.out.println("Voice State 2: " + ((Honeycomb) bt).getVoiceState());
+					Intent intent = new Intent(
+							RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+					intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+							RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+					startActivityForResult(intent, REQUEST_CODE);
+				} else {
+					Toast.makeText(getApplicationContext(),
+							"Plese Connect to Internet", Toast.LENGTH_LONG)
+							.show();
+				}
+//				startService(new Intent(context, MyService.class));
+			}
+
+		});
 	}
 	
 	@Override
@@ -148,11 +148,11 @@ public class MainActivity extends Activity {
 	    public void onHeadsetConnected()
 	    {
 	    	System.out.println("Should Start speech here");
-			Intent intent = new Intent(
-			RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-	intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-			RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-	startActivityForResult(intent, REQUEST_CODE);
+//			Intent intent = new Intent(
+//			RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+//	intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+//			RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+//	startActivityForResult(intent, REQUEST_CODE);
 	    }
 	    
 	    protected void speak(String text)
